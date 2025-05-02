@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Videojuegos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a0a0f;
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      padding: 40px;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00bfff;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00bfff;
+    }
+
+    .form-container {
+      background: #12141d;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: #89caff;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #00bfff;
+      border-radius: 6px;
+      background-color: #1b1e2b;
+      color: #ffffff;
+      font-size: 14px;
+      box-shadow: inset 0 0 5px #00bfff44;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #bbbbbb;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .post-btn {
+      background-color: #0066ff;
+    }
+
+    .get-btn {
+      background-color: #00ccff;
+    }
+
+    .post-btn:hover {
+      background-color: #0044aa;
+    }
+
+    .get-btn:hover {
+      background-color: #0099cc;
+    }
+
+    #updateArea button {
+      background-color: #00ffaa;
+    }
+
+    #updateArea button:hover {
+      background-color: #00cc88;
+    }
+
+    #resultado {
+      margin-top: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background-color: #1c1f2d;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #2e3245;
+    }
+
+    th {
+      background-color: #00bfff;
+      color: #000;
+      font-size: 13px;
+    }
+
+    td {
+      font-size: 13px;
+    }
+
+    .edit-btn, .delete-btn {
+      padding: 6px 10px;
+      margin: 0 2px;
+      font-size: 13px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #ffd700;
+      color: #000;
+    }
+
+    .delete-btn {
+      background-color: #ff4444;
+      color: #fff;
+    }
+
+    .edit-btn:hover {
+      background-color: #e6c200;
+    }
+
+    .delete-btn:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Gestión de Videojuegos</h2>
+
+<div class="form-container">
+  <div class="form-group">
+    <label for="title">Título</label>
+    <input type="text" id="title" placeholder="Ej: Super Mario Bros">
+  </div>
+
+  <div class="form-group">
+    <label for="genre">Género</label>
+    <input type="text" id="genre" placeholder="Ej: RPG, Aventura">
+  </div>
+
+  <div class="form-group">
+    <label for="platform">Plataforma</label>
+    <input type="text" id="platform" placeholder="Ej: PS5, Xbox, PC">
+  </div>
+
+  <div class="form-group">
+    <label for="releaseYear">Año de Lanzamiento</label>
+    <input type="number" id="releaseYear" placeholder="Ej: 1998">
+  </div>
+
+  <div class="form-group">
+    <label for="developer">Desarrollador</label>
+    <input type="text" id="developer" placeholder="Ej: Nintendo">
+  </div>
+
+  <div class="form-group">
+    <label for="coverImage">URL de Imagen</label>
+    <input type="text" id="coverImage" placeholder="https://ejemplo.com/imagen.jpg o https://ejemplo.com/imagen.png">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Descripción</label>
+    <textarea id="description" placeholder="Descripcion del juego"></textarea>
+  </div>
+
+  <div class="button-group">
+    <button class="post-btn" onclick="postVideogame()">POST Videojuego</button>
+    <button class="get-btn" onclick="getVideogames()">GET Videojuegos</button>
+  </div>
+
+  <div class="button-group" id="updateArea">
+  </div>
+</div>
+
+<div id="resultado"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="callrestapi.js"></script>
+
+</body>
+</html>
